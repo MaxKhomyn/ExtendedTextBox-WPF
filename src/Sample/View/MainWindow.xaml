@@ -1,0 +1,26 @@
+﻿<Window x:Class="Sample.View.MainWindow"
+        DataContext="{Binding Main, Source={StaticResource Locator}}"
+        
+        xmlns:Components="clr-namespace:TextBoxStyle.Components;assembly=TextBox.Style"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="212.667" Width="358"
+        mc:Ignorable="d">
+    <VirtualizingStackPanel MaxWidth="300" VerticalAlignment="Center" Margin="5">
+        <Components:TextBoxExtended Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}" Margin="0,5"
+                                    Style="{DynamicResource TextBoxExtended.Style}" PlaceHolder="It is textbox for your first name"
+                                    Header="First Name" Image="{DynamicResource FirstName}"/>
+        <Components:TextBoxExtended Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}" Margin="0,5"
+                                    Style="{DynamicResource TextBoxExtended.Style}" PlaceHolder="It is textbox for your last name"
+                                    Header="Last Name" Image="{DynamicResource LastName}"/>
+        <Components:TextBoxExtended Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}" Margin="0,5"
+                                    Style="{DynamicResource TextBoxExtended.Style}" PlaceHolder="It is textbox for your phone number"
+                                    Header="Phone Number" Image="{DynamicResource PhoneNumber}"/>
+
+        <!--<Components:TextBoxExtended Text="{Binding Text, Converter={StaticResource EDConverter}}" Margin="0,5"
+                                    Style="{DynamicResource TextBoxExtended.Style}" PlaceHolder="You can write expression to calculation (ex. 10 + 3 - 34)"
+                                    Header="Calculable" Image="{DynamicResource PhoneNumber}"/>-->
+    </VirtualizingStackPanel>
+</Window>

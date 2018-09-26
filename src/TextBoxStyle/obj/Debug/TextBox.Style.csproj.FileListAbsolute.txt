@@ -1,0 +1,15 @@
+D:\Work\ExtendedTextBox-WPF\src\TextBoxStyle\bin\Debug\TextBox.Style.dll
+D:\Work\ExtendedTextBox-WPF\src\TextBoxStyle\bin\Debug\TextBox.Style.pdb
+D:\Work\ExtendedTextBox-WPF\src\TextBoxStyle\obj\Debug\Assets\SVGs.baml
+D:\Work\ExtendedTextBox-WPF\src\TextBoxStyle\obj\Debug\Styles\BaseDictionary.baml
+D:\Work\ExtendedTextBox-WPF\src\TextBoxStyle\obj\Debug\Styles\Colors.baml
+D:\Work\ExtendedTextBox-WPF\src\TextBoxStyle\obj\Debug\Styles\EditableTextBox.baml
+D:\Work\ExtendedTextBox-WPF\src\TextBoxStyle\obj\Debug\Styles\TextBlockStyle.baml
+D:\Work\ExtendedTextBox-WPF\src\TextBoxStyle\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Work\ExtendedTextBox-WPF\src\TextBoxStyle\obj\Debug\TextBox.Style_MarkupCompile.cache
+D:\Work\ExtendedTextBox-WPF\src\TextBoxStyle\obj\Debug\TextBox.Style_MarkupCompile.lref
+D:\Work\ExtendedTextBox-WPF\src\TextBoxStyle\obj\Debug\Styles\TextBoxStyle.baml
+D:\Work\ExtendedTextBox-WPF\src\TextBoxStyle\obj\Debug\TextBox.Style.g.resources
+D:\Work\ExtendedTextBox-WPF\src\TextBoxStyle\obj\Debug\TextBox.Style.csproj.CoreCompileInputs.cache
+D:\Work\ExtendedTextBox-WPF\src\TextBoxStyle\obj\Debug\TextBox.Style.dll
+D:\Work\ExtendedTextBox-WPF\src\TextBoxStyle\obj\Debug\TextBox.Style.pdb

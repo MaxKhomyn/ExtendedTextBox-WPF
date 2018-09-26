@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2047
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextBox.Style", "TextBoxStyle\TextBox.Style.csproj", "{6562CBF7-4251-4CE0-A811-5EAA612FA70D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample", "Sample\Sample.csproj", "{A37B3622-1381-405D-8059-064C92901B5D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6562CBF7-4251-4CE0-A811-5EAA612FA70D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6562CBF7-4251-4CE0-A811-5EAA612FA70D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6562CBF7-4251-4CE0-A811-5EAA612FA70D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6562CBF7-4251-4CE0-A811-5EAA612FA70D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A37B3622-1381-405D-8059-064C92901B5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A37B3622-1381-405D-8059-064C92901B5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A37B3622-1381-405D-8059-064C92901B5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A37B3622-1381-405D-8059-064C92901B5D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1C284E38-BBAF-45A9-94E4-EA96A32C35ED}
+	EndGlobalSection
+EndGlobal
