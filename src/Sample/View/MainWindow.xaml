@@ -2,25 +2,68 @@
         DataContext="{Binding Main, Source={StaticResource Locator}}"
         
         xmlns:Components="clr-namespace:TextBoxStyle.Components;assembly=TextBox.Style"
+        xmlns:Helpers="clr-namespace:TextBoxStyle.Helpers;assembly=TextBox.Style"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="212.667" Width="358"
-        mc:Ignorable="d">
-    <VirtualizingStackPanel MaxWidth="300" VerticalAlignment="Center" Margin="5">
-        <Components:TextBoxExtended Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}" Margin="0,5"
-                                    Style="{DynamicResource TextBoxExtended.Style}" PlaceHolder="It is textbox for your first name"
-                                    Header="First Name" Image="{DynamicResource FirstName}"/>
-        <Components:TextBoxExtended Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}" Margin="0,5"
-                                    Style="{DynamicResource TextBoxExtended.Style}" PlaceHolder="It is textbox for your last name"
-                                    Header="Last Name" Image="{DynamicResource LastName}"/>
-        <Components:TextBoxExtended Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}" Margin="0,5"
-                                    Style="{DynamicResource TextBoxExtended.Style}" PlaceHolder="It is textbox for your phone number"
-                                    Header="Phone Number" Image="{DynamicResource PhoneNumber}"/>
+       
+        Title="MainWindow" Height="554.667" Width="1219"
+        mc:Ignorable="d" WindowState="Maximized">
 
-        <!--<Components:TextBoxExtended Text="{Binding Text, Converter={StaticResource EDConverter}}" Margin="0,5"
-                                    Style="{DynamicResource TextBoxExtended.Style}" PlaceHolder="You can write expression to calculation (ex. 10 + 3 - 34)"
-                                    Header="Calculable" Image="{DynamicResource PhoneNumber}"/>-->
-    </VirtualizingStackPanel>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300" MinWidth="200"/>
+            <ColumnDefinition Width="*" MinWidth="200"/>
+        </Grid.ColumnDefinitions>
+
+        <ListBox ItemsSource="{Binding PersonCollection}"
+                 SelectedItem="{Binding PersonCollection.Selected, UpdateSourceTrigger=PropertyChanged}"
+                 Background="Transparent" BorderThickness="0">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <VirtualizingStackPanel>
+                        <TextBlock>
+                            <Run Text="{Binding FirstName}"/>
+                            <Run Text=" "/>
+                            <Run Text="{Binding LastName}"/>
+                        </TextBlock>
+                        <TextBlock Text="{Binding PhoneNumber}"/>
+                        <TextBlock Text="{Binding Salary}"/>
+                    </VirtualizingStackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <GridSplitter Width="5"/>
+
+        <VirtualizingStackPanel MaxWidth="500" VerticalAlignment="Center" Margin="5" Grid.Column="1"
+                                DataContext="{Binding PersonCollection}">
+            <Components:TextBoxExtended Text="{Binding Selected.FirstName, UpdateSourceTrigger=PropertyChanged}" Margin="0,5" FontSize="25"
+                                    Style="{DynamicResource TextBoxExtended.Style}" PlaceHolder="It is textbox for your first name"
+                                    Header="First Name" Image="{DynamicResource FirstNameImage}"
+                                        IsEnabled="{Binding IsSet}"/>
+            <Components:TextBoxExtended Text="{Binding Selected.LastName, UpdateSourceTrigger=PropertyChanged}" Margin="0,5" FontSize="25"
+                                    Style="{DynamicResource TextBoxExtended.Style}" PlaceHolder="It is textbox for your last name"
+                                    Header="Last Name" Image="{DynamicResource LastNameImage}"
+                                        IsEnabled="{Binding IsSet}"/>
+            <Components:TextBoxExtended Text="{Binding Selected.PhoneNumber, UpdateSourceTrigger=PropertyChanged}" Margin="0,25" FontSize="25"
+                                    Style="{DynamicResource TextBoxExtended.Style}" PlaceHolder="It is textbox for your phone number"
+                                    Header="Phone Number" Image="{DynamicResource PhoneNumberImage}"
+                                        IsEnabled="{Binding IsSet}"/>
+
+            <Components:TextBoxExtended Text="{Binding Selected.Salary, Converter={StaticResource EDConverter}}" Margin="0,5" FontSize="25"
+                                    Style="{DynamicResource TextBoxExtended.Style}" IsEnterUpdate="True"
+                                        PlaceHolder="You can write expression to calculation (ex. 10 + 3 - 34)"
+                                    Header="Calculable" Image="{DynamicResource PhoneNumberImage}"
+                                        IsEnabled="{Binding IsSet}">
+                <i:Interaction.Behaviors>
+                    <Helpers:TextBoxEnterKeyUpdateBehavior/>
+                </i:Interaction.Behaviors>
+            </Components:TextBoxExtended>
+        </VirtualizingStackPanel>
+
+    </Grid>
+    
 </Window>

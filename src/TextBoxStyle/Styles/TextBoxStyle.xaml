@@ -1,9 +1,10 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"           
                     xmlns:Components="clr-namespace:TextBoxStyle.Components"
                     xmlns:Converters="clr-namespace:TextBoxStyle.Converters"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Colors.xaml"/>
+        <ResourceDictionary Source="ButtonStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Converters:BoolToVisibilityHiddenConverter x:Key="BHConverter"/>
@@ -14,10 +15,8 @@
             <Setter Property="CaretBrush" Value="{DynamicResource TextBox.Static.CaretBrush}" />
             <Setter Property="Background" Value="{DynamicResource TextBox.Static.Background}" />
             <Setter Property="BorderBrush" Value="{DynamicResource TextBox.Static.Border}" />
-            <!--<Setter Property="HorizontalContentAlignment" Value="{TemplateBinding HorizontalContentAlignment}" />-->
             <Setter Property="BorderThickness" Value="1,1,1,1" />
             <Setter Property="ForceCursor" Value="true" />
-            <Setter Property="Cursor" Value="IBeam" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Components:TextBoxExtended">
@@ -27,7 +26,7 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
 
-                            <TextBlock Text="{TemplateBinding Header}"/>
+                            <TextBlock Text="{TemplateBinding Header}" Cursor="IBeam"/>
 
                             <Border Name="Border" CornerRadius="1" Grid.Row="1"
                                     Background="{TemplateBinding Background}"
@@ -37,23 +36,28 @@
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto"/>
                                         <ColumnDefinition/>
+                                        <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Path Fill="{DynamicResource TextBox.Static.Foreground}"
+                                    <Path Fill="{DynamicResource TextBox.Static.Foreground}" Cursor="IBeam"
                                           StrokeThickness="0" Stretch="Uniform" Height="{TemplateBinding FontSize}"
                                           Data="{TemplateBinding Image}"/>
 
-                                    <ScrollViewer x:Name="PART_ContentHost" Grid.Column="1"/>
+                                    <ScrollViewer x:Name="PART_ContentHost" Grid.Column="1" VerticalAlignment="Center"/>
 
-                                    <!--<TextBlock x:Name="PART_Hint" Grid.Column="1" Text="{TemplateBinding PlaceHolder}"
-                                               Margin="{TemplateBinding Padding}" TextTrimming="CharacterEllipsis"
-                                               Foreground="{TemplateBinding Foreground}" Background="Transparent"
-                                               IsHitTestVisible="False"
-                                               Visibility="{Binding Text.IsEmpty, RelativeSource={RelativeSource AncestorType=TextBox}, Converter={StaticResource BHConverter}}" />-->
-
+                                    <Button x:Name="PART_Clear" Grid.Column="2" Style="{DynamicResource Button.FlatStyle}"
+                                            Command="{Binding Command_TextClear, RelativeSource={RelativeSource TemplatedParent}}">
+                                        <Path Fill="{DynamicResource TextBox.Static.Foreground}" Height="{TemplateBinding FontSize}"
+                                              StrokeThickness="0" Stretch="Uniform" Data="{DynamicResource CloseImage}"/>
+                                    </Button>
                                 </Grid>
                             </Border>
                         </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Text" Value="">
+                                <Setter TargetName="PART_Clear" Property="Visibility" Value="Hidden"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -78,7 +82,7 @@
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
 
-                                <TextBlock Text="{TemplateBinding Header}"/>
+                                <TextBlock Text="{TemplateBinding Header}" Cursor="IBeam"/>
 
                                 <Border Name="Border" CornerRadius="1" Grid.Row="1"
                                         Background="{TemplateBinding Background}"
@@ -88,22 +92,30 @@
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto"/>
                                             <ColumnDefinition/>
+                                            <ColumnDefinition Width="Auto"/>
                                         </Grid.ColumnDefinitions>
 
-                                        <Path Fill="{DynamicResource TextBox.Static.Foreground}"
+                                        <Path Fill="{DynamicResource TextBox.Static.Foreground}" Cursor="IBeam"
                                               StrokeThickness="0" Stretch="Uniform" Height="{TemplateBinding FontSize}"
                                               Data="{TemplateBinding Image}"/>
 
                                         <TextBlock x:Name="PART_Hint" Grid.Column="1" Text="{TemplateBinding Text}"
-                                                   Margin="{TemplateBinding Padding}" TextTrimming="CharacterEllipsis"
-                                                   Foreground="{TemplateBinding Foreground}" Background="Transparent"
-                                                   IsHitTestVisible="False"/>
+                                                   Margin="2,0" TextTrimming="CharacterEllipsis" Cursor="IBeam"
+                                                   Foreground="{DynamicResource TextBox.Disabled.Foreground}" Background="Transparent"
+                                                   IsHitTestVisible="False" VerticalAlignment="Center"/>
+
+                                        <Button x:Name="PART_Clear" Grid.Column="2" Style="{DynamicResource Button.FlatStyle}" Cursor="Hand"
+                                                Command="{Binding Command_TextClear, RelativeSource={RelativeSource TemplatedParent}}">
+                                            <Path Fill="{DynamicResource TextBox.Static.Foreground}" Height="{TemplateBinding FontSize}"
+                                                  StrokeThickness="0" Stretch="Uniform" Data="{DynamicResource CloseImage}"/>
+                                        </Button>
                                     </Grid>
                                 </Border>
                             </Grid>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="Text" Value="">
                                     <Setter TargetName="PART_Hint" Property="Text" Value="{Binding PlaceHolder, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                    <Setter TargetName="PART_Clear" Property="Visibility" Value="Hidden"/>
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
