@@ -31,4 +31,4 @@ xmlns:Components="clr-namespace:TextBoxStyle.Components;assembly=TextBox.Style"
 
 ## License
 
-[MIT License](LICENSE)
+[MIT License](Licence)
