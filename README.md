@@ -9,8 +9,6 @@ ExtendedTextBox provides extended design for WPF TextBox.
 
 ### Preparation
 
-Add XAML namespace.
-
 Add ResourceDictionary to App.xaml.
 
 ```xml
