@@ -1,6 +1,6 @@
 # ExtendedTextBox-WPF
-
 ExtendedTextBox provides extended design for WPF TextBox.
+
 ## Overview
 
 ![](Files/MainWindow(NothingSelected).png)
