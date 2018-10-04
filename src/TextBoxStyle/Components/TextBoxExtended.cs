@@ -60,18 +60,6 @@ namespace TextBoxStyle.Components
 
         #endregion IsInPlaceEditor
 
-        #region IsEnterUpdate
-
-        public static readonly DependencyProperty IsEnterUpdateProperty = DependencyProperty.RegisterAttached
-        (
-            "IsEnterUpdate", typeof(bool), typeof(TextBoxExtended),
-            new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.Inherits)
-        );
-        public static bool GetIsEnterUpdate(DependencyObject obj) => (bool)obj.GetValue(IsEnterUpdateProperty);
-        public static void SetIsEnterUpdate(DependencyObject obj, bool value) => obj.SetValue(IsEnterUpdateProperty, value);
-
-        #endregion IsEnterUpdate
-
         #endregion DependencyPropertys
 
         #region RelayCommands
@@ -90,11 +78,6 @@ namespace TextBoxStyle.Components
         public TextBoxExtended() { }
 
         #endregion Constructor
-
-        #region Methods
-        
-
-        #endregion Methods
 
         #region Events
 

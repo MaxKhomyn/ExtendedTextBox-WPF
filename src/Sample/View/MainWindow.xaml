@@ -14,13 +14,14 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300" MinWidth="200"/>
+            <ColumnDefinition Width="74"/>
+            <ColumnDefinition Width="226"/>
             <ColumnDefinition Width="*" MinWidth="200"/>
         </Grid.ColumnDefinitions>
 
         <ListBox ItemsSource="{Binding PersonCollection}"
                  SelectedItem="{Binding PersonCollection.Selected, UpdateSourceTrigger=PropertyChanged}"
-                 Background="Transparent" BorderThickness="0">
+                 Background="Transparent" BorderThickness="0" HorizontalContentAlignment="Stretch" Grid.ColumnSpan="2">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <VirtualizingStackPanel>
@@ -36,9 +37,9 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <GridSplitter Width="5"/>
+        <GridSplitter Width="5" Grid.Column="1"/>
 
-        <VirtualizingStackPanel MaxWidth="500" VerticalAlignment="Center" Margin="5" Grid.Column="1"
+        <VirtualizingStackPanel MaxWidth="500" VerticalAlignment="Center" Margin="5,152" Grid.Column="2"
                                 DataContext="{Binding PersonCollection}">
             <Components:TextBoxExtended Text="{Binding Selected.FirstName, UpdateSourceTrigger=PropertyChanged}" Margin="0,5" FontSize="25"
                                     Style="{DynamicResource TextBoxExtended.Style}" PlaceHolder="It is textbox for your first name"
@@ -54,7 +55,7 @@
                                         IsEnabled="{Binding IsSet}"/>
 
             <Components:TextBoxExtended Text="{Binding Selected.Salary, Converter={StaticResource EDConverter}}" Margin="0,5" FontSize="25"
-                                    Style="{DynamicResource TextBoxExtended.Style}" IsEnterUpdate="True"
+                                    Style="{DynamicResource TextBoxExtended.Style}"
                                         PlaceHolder="You can write expression to calculation (ex. 10 + 3 - 34)"
                                     Header="Calculable" Image="{DynamicResource PhoneNumberImage}"
                                         IsEnabled="{Binding IsSet}">
@@ -65,5 +66,5 @@
         </VirtualizingStackPanel>
 
     </Grid>
-    
+
 </Window>

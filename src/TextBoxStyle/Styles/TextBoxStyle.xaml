@@ -20,15 +20,11 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Components:TextBoxExtended">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
+                        <VirtualizingStackPanel>
 
-                            <TextBlock Text="{TemplateBinding Header}" Cursor="IBeam"/>
+                            <TextBlock x:Name="PART_Header" Text="{TemplateBinding Header}" Cursor="IBeam"/>
 
-                            <Border Name="Border" CornerRadius="1" Grid.Row="1"
+                            <Border Name="Border" CornerRadius="1"
                                     Background="{TemplateBinding Background}"
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}">
@@ -52,10 +48,13 @@
                                     </Button>
                                 </Grid>
                             </Border>
-                        </Grid>
+                        </VirtualizingStackPanel>
                         <ControlTemplate.Triggers>
                             <Trigger Property="Text" Value="">
                                 <Setter TargetName="PART_Clear" Property="Visibility" Value="Hidden"/>
+                            </Trigger>
+                            <Trigger Property="Header" Value="">
+                                <Setter TargetName="PART_Header" Property="Visibility" Value="Collapsed"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -76,15 +75,11 @@
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="Components:TextBoxExtended">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
+                            <VirtualizingStackPanel>
 
-                                <TextBlock Text="{TemplateBinding Header}" Cursor="IBeam"/>
+                                <TextBlock x:Name="PART_Header" Text="{TemplateBinding Header}" Cursor="IBeam"/>
 
-                                <Border Name="Border" CornerRadius="1" Grid.Row="1"
+                                <Border Name="Border" CornerRadius="1"
                                         Background="{TemplateBinding Background}"
                                         BorderBrush="{TemplateBinding BorderBrush}"
                                         BorderThickness="{TemplateBinding BorderThickness}">
@@ -111,11 +106,14 @@
                                         </Button>
                                     </Grid>
                                 </Border>
-                            </Grid>
+                            </VirtualizingStackPanel>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="Text" Value="">
                                     <Setter TargetName="PART_Hint" Property="Text" Value="{Binding PlaceHolder, RelativeSource={RelativeSource TemplatedParent}}"/>
                                     <Setter TargetName="PART_Clear" Property="Visibility" Value="Hidden"/>
+                                </Trigger>
+                                <Trigger Property="Header" Value="">
+                                    <Setter TargetName="PART_Header" Property="Visibility" Value="Collapsed"/>
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>

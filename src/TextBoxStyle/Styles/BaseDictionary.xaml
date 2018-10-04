@@ -2,8 +2,8 @@
     <ResourceDictionary.MergedDictionaries>
         
         <ResourceDictionary Source="../Assets/SVGs.xaml"/>
-                
-        <ResourceDictionary Source="EditableTextBox.xaml"/>
+
+        <ResourceDictionary Source="TextBoxInPlace.xaml"/>
         <ResourceDictionary Source="TextBlockStyle.xaml"/>
         <ResourceDictionary Source="TextBoxStyle.xaml"/>
         
